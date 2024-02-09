@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-dark navbar-dark mb-5">
       <div className="container-fluid">
         <Link className="navbar-brand" to={"/"}>
           JOB PORTAL
@@ -25,7 +25,7 @@ const NavBar = () => {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to={"/view-employees"}
+                to={"/viewEmployee"}
               >
                 View All Employees
               </Link>
@@ -34,7 +34,7 @@ const NavBar = () => {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to={"/add-employees"}
+                to={"/addEmployee"}
               >
                 Add Employees
               </Link>
