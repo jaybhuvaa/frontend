@@ -1,0 +1,62 @@
+/* styles.css (or any preferred name) */
+
+/* Dark Table Styles */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #fff;
+  background-color: #343a40; /* Dark background color */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  vertical-align: middle;
+  border-top: 1px solid #495057;
+}
+
+.table thead th {
+  background-color: #495057;
+  border-bottom: 2px solid #495057;
+}
+
+/* Dark Button Styles */
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 5px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-info {
+  background-color: #007bff;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+/* Optional: Add hover or active styles for buttons if needed */
+
+/* Responsive Styles - Adjust as needed */
+@media (max-width: 767px) {
+  /* Add responsive styles here if necessary */
+}
