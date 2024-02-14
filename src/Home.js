@@ -16,7 +16,7 @@ const Home = () => {
       <div className="mt-4">
         <h2>Job Seekers</h2>
         <p>Looking for a job? Explore our job listings and find your dream job.</p>
-        <Link to="/jobListings" className="btn btn-primary">
+        <Link to="/viewEmployee" className="btn btn-primary">
           Explore Jobs
         </Link>
       </div>
@@ -24,7 +24,7 @@ const Home = () => {
       <div className="mt-4">
         <h2>Employers</h2>
         <p>Post your job openings and connect with qualified candidates.</p>
-        <Link to="/postJob" className="btn btn-success">
+        <Link to="/addEmployee" className="btn btn-success">
           Post a Job
         </Link>
       </div>
