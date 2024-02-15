@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaEye, FaTrashAlt, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./yEmployeeView.css";
+import "./EmployeeView.css";
 
 const EmployeesView = () => {
   const [employees, setEmployees] = useState([]);

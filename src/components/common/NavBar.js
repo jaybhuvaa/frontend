@@ -10,6 +10,8 @@ const NavBar = () => {
           JOB PORTAL
         </Link>
         <button
+          
+          
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
