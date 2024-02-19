@@ -6,6 +6,7 @@ import "..//node_modules/bootstrap/dist/js/bootstrap.min.js";
 import NavBar from "./components/common/NavBar.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddEmployee from "./components/employee/AddEmployee.js";
+import EditEmployee from "./components/employee/EditEmployee.js";
 
 function App() {
   return (
@@ -16,9 +17,13 @@ function App() {
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/viewEmployee" element={<EmployeesView />}></Route>
           <Route exact path="/addEmployee" element={<AddEmployee />}></Route>
+          <Route
+            exact
+            path="/editEmployee/:id"
+            element={<EditEmployee />}
+          ></Route>
         </Routes>
       </Router>
-      
     </main>
   );
 }
