@@ -7,6 +7,7 @@ import NavBar from "./components/common/NavBar.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddEmployee from "./components/employee/AddEmployee.js";
 import EditEmployee from "./components/employee/EditEmployee.js";
+import EmployeeProfile from "./components/employee/EmployeeProfile.js";
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
             exact
             path="/editEmployee/:id"
             element={<EditEmployee />}
+          ></Route>
+          <Route
+            exact
+            path="/employeeProfile/:id"
+            element={<EmployeeProfile />}
           ></Route>
         </Routes>
       </Router>
