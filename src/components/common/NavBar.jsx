@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./NavBar.css"; 
+import "./NavBar.css";
+import { useSelector } from "react-redux";
+
 
 const NavBar = () => {
+  const status = useSelector(state => state.auth.status)
+  const logout = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  }
   return (
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark mb-5">
       <div className="container-fluid">
@@ -10,8 +17,6 @@ const NavBar = () => {
           JOB PORTAL
         </Link>
         <button
-          
-          
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -41,6 +46,20 @@ const NavBar = () => {
               >
                 Add Employees
               </Link>
+            </li>
+            <li className="nav-item">
+              {status ? (
+                <button className="nav-link active" onClick={logout}>
+                  Logout
+                </button>
+              ) : 
+              (<Link
+                className="nav-link active"
+                aria-current="page"
+                to={"/login"}
+              >
+                Login
+              </Link>)}
             </li>
           </ul>
         </div>
