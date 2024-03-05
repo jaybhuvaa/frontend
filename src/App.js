@@ -30,7 +30,7 @@ function App() {
               exact
               path="/"
               element={
-                <Protected authentication>
+                <Protected authentication={false}>
                   <Home />
                 </Protected>
               }
