@@ -1,45 +1,61 @@
-/* styles.css (or any preferred name) */
+/* NavBar.css */
 
-/* Navbar Styles */
+/* Navbar styling */
 .navbar {
-    background-color: #343a40; /* Dark background color */
-    color: #ffffff; /* Text color */
+  background-color: #343a40; /* Dark background color */
+  padding: 15px 0; /* Adjust the padding as needed */
+}
+
+.navbar-brand {
+  color: #ffffff; /* Navbar brand text color */
+  font-size: 1.5rem; /* Adjust the font size as needed */
+}
+
+.navbar-toggler {
+  border: 1px solid #ffffff; /* Navbar toggler border color */
+}
+
+.navbar-toggler-icon {
+  background-color: #ffffff; /* Navbar toggler icon color */
+}
+
+/* Navbar links styling */
+.navbar-nav {
+  margin-left: auto; /* Move the navbar links to the right */
+}
+
+.navbar-nav li {
+  display: inline-block; /* Display list items horizontally */
+  margin-right: 15px; /* Adjust the margin between list items */
+}
+
+.nav-link {
+  color: #ffffff; /* Navbar link text color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Active link styling */
+.nav-link.active,
+.nav-link.active:hover {
+  border-bottom: 2px solid #ffffff; /* Underline active link */
+}
+
+/* Logout button styling */
+.navbar-nav button {
+  color: #ffffff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar-nav {
+    margin: 0; /* Center the links in mobile view */
   }
-  
-  .navbar-brand {
-    font-size: 1.5rem; /* Adjust the font size as needed */
-    font-weight: bold;
+
+  .navbar-nav li {
+    display: block; /* Display list items vertically in mobile view */
+    margin: 5px 0; /* Adjust the margin between list items in mobile view */
   }
-  
-  .navbar-toggler-icon {
-    color: #ffffff; /* Toggler icon color */
-  }
-  
-  /* Nav Link Styles */
-  .navbar-nav .nav-link {
-    color: #ffffff; /* Nav link text color */
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: #17a2b8; /* Nav link text color on hover */
-  }
-  
-  .navbar-nav .nav-link.active {
-    color: #17a2b8; /* Active nav link text color */
-  }
-  
-  /* Container Styles */
-  .container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  
-  /* Optional: Adjust margin or padding as needed for your layout */
-  
-  /* Responsive Styles - Adjust as needed */
-  @media (max-width: 767px) {
-    /* Add responsive styles here if necessary */
-  }
-  
+}

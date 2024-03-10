@@ -3,7 +3,7 @@ import axios from "axios";
 class Database {
   constructor() {
     this.db = process.env.REACT_APP_BASE_URL;
-    console.log("db:", this.db);
+    //console.log("db:", this.db);
   }
 
   //createAccount

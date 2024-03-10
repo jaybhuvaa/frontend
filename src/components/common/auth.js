@@ -1,4 +1,4 @@
-import conf from "../common/conf.js"
+
 
 // import { Client, Account, ID } from "appwrite";
 import database from "./database.js";
@@ -34,6 +34,7 @@ export class AuthService {
             const user = await this.account.login(email, password)
 
             localStorage.clear();
+            localStorage.setItem('userId', email);
             localStorage.setItem('user', JSON.stringify(user));
             
             return user;

@@ -10,15 +10,23 @@ const EmployeesView = () => {
   useEffect(() => {
     loadEmployees();
   }, []);
-
   const loadEmployees = async () => {
-    const result = await axios.get("http://localhost:9192/employee", {
-      validateStatus: () => {
-        return true;
-      },
-    });
-    if (result.status === 302) {
-      setEmployees(result.data);
+    try {
+      const userId = localStorage.getItem("userId");
+
+      const result = await axios.get(
+        `http://localhost:9192/employee/user/${userId}`,
+        {
+          validateStatus: () => true,
+        }
+      );
+
+      
+        console.log(result.data); // Add this line to check the data in the console
+        setEmployees(result.data);
+      
+    } catch (error) {
+      console.error("Error loading employees:", error);
     }
   };
 

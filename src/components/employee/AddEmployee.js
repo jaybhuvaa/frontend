@@ -6,11 +6,11 @@ import axios from "axios";
 const AddEmployee = () => {
   let navigate = useNavigate();
   const [employee, setEmployee] = useState({
-    "firstName": "",
-    "lastName": "",
-    "email": "",
-    "department": "",
-    "description": "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    department: "",
+    description: "",
   });
   const { firstName, lastName, email, department, description } = employee;
 
@@ -21,15 +21,13 @@ const AddEmployee = () => {
     });
   };
   const saveEmployee = async (e) => {
-		e.preventDefault();
+    e.preventDefault();
+    const userId = localStorage.getItem("userId");
+    console.log(userId);
     console.log(employee);
-		await axios.post(
-			"http://localhost:9192/employee",
-			employee
-		);
-		navigate("/viewEmployee");
-	};
-  
+    await axios.post(`http://localhost:9192/employee/${userId}`, employee);
+    navigate("/viewEmployee");
+  };
 
   return (
     <div className="col-sm-8 py-2 px-5 offset-2 shadow">
