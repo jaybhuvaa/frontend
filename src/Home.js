@@ -1,8 +1,8 @@
 // Home.js
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import "./Home.css"
+import React from "react";
+import { Link } from "react-router-dom";
+//import "./Home.css"
 
 const Home = () => {
   return (
@@ -15,7 +15,9 @@ const Home = () => {
 
       <div className="mt-4">
         <h2>Job Seekers</h2>
-        <p>Looking for a job? Explore our job listings and find your dream job.</p>
+        <p>
+          Looking for a job? Explore our job listings and find your dream job.
+        </p>
         <Link to="/viewEmployee" className="btn btn-primary">
           Explore Jobs
         </Link>
