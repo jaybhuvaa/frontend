@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./EmployeeView.css";
 
@@ -22,6 +21,7 @@ const EditEmployee = () => {
       [e.target.name]: e.target.value,
     });
   };
+
   const editEmployee = async (e) => {
     e.preventDefault();
     console.log(employee);
@@ -41,11 +41,11 @@ const EditEmployee = () => {
   };
 
   return (
-    <div className="col-sm-8 py-2 px-5 offset-2 shadow">
-      <h2 className="mt-5"> Edit Employee</h2>
+    <div className="col-sm-8 py-2 px-5 offset-2 shadow mt-20">
+      <h2 className="mt-5">Edit Employee</h2>
       <form onSubmit={(e) => editEmployee(e)}>
-        <div className="input-group mb-5">
-          <label className="input-group-text" htmlFor="fristName">
+        <div className="input-group mb-5 mt-3">
+          <label className="input-group-text" htmlFor="firstName">
             First Name
           </label>
           <input
@@ -103,6 +103,7 @@ const EditEmployee = () => {
             onChange={(e) => handleInputChange(e)}
           />
         </div>
+
         <div className="input-group mb-5">
           <label className="input-group-text" htmlFor="description">
             Description
@@ -118,22 +119,20 @@ const EditEmployee = () => {
           />
         </div>
 
-        <div className="row mb-5">
-          <div className="col-sm-2">
-            <button type="submit" className="btn btn-outline-success btn-lg">
-              Save
-            </button>
-          </div>
+        <div className="flex mb-3">
+          <button
+            type="submit"
+            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg mr-2"
+          >
+            Save
+          </button>
 
-          <div className="col-sm-2">
-            <Link
-              to={"/viewEmployee"}
-              type="submit"
-              className="btn btn-outline-warning btn-lg"
-            >
-              Cancel
-            </Link>
-          </div>
+          <Link
+            to={"/viewEmployee"}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg ml-2"
+          >
+            Cancel
+          </Link>
         </div>
       </form>
     </div>

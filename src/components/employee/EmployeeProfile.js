@@ -18,36 +18,35 @@ const EmployeeProfile = () => {
   }, []);
 
   const loadEmployee = async () => {
-    const result = await axios.get(
-      `http://localhost:9192/employee/employee/${id}`
-    );
-    setEmployee(result.data);
+    try {
+      const result = await axios.get(
+        `http://localhost:9192/employee/employee/${id}`
+      );
+      setEmployee(result.data);
+    } catch (error) {
+      console.error("Error loading employee:", error);
+    }
   };
 
   return (
-    <section className="shadow" style={{ backgroundColor: "whitesmoke" }}>
-      <div className="container py-5">
-        <div className="row">
-          <div className="col-lg-3">
-            <div className="card mb-4">
-              <div className="card-body text-center">
+    <section className="shadow bg-gray-100">
+      <div className="container py-8 mt-36">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="lg:col-span-1">
+            <div className="bg-white p-6 rounded-lg shadow-md mb-4 h-full">
+              <div className="text-center">
                 <img
                   src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                   alt="avatar"
-                  className="rounded-circle img-fluid"
+                  className="rounded-full mx-auto mb-4"
                   style={{ width: 150 }}
                 />
-                <h5 className="my-3">
-                  {`${employee.firstName} ${employee.lastName}`}
-                </h5>
-                <div className="d-flex justify-content-center mb-2">
-                  <button type="button" className="btn btn-outline-primary">
+                <h5 className="text-xl mb-3">{`${employee.firstName} ${employee.lastName}`}</h5>
+                <div className="flex justify-center mb-4">
+                  <button type="button" className="btn btn-primary mr-2">
                     Call
                   </button>
-                  <button
-                    type="button"
-                    className="btn btn-outline-warning ms-1"
-                  >
+                  <button type="button" className="btn btn-warning">
                     Message
                   </button>
                 </div>
@@ -55,64 +54,30 @@ const EmployeeProfile = () => {
             </div>
           </div>
 
-          <div className="col-lg-9">
-            <div className="card mb-4">
-              <div className="card-body">
-                <hr />
-
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h5 className="mb-0">First Nmae</h5>
-                  </div>
-
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0">{employee.firstName}</p>
-                  </div>
+          <div className="lg:col-span-2">
+            <div className="bg-white p-6 rounded-lg shadow-md h-full">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-4">
+                <div>
+                  <h5 className="text-lg font-semibold">First Name</h5>
+                  <p className="text-sm text-gray-600">{employee.firstName}</p>
                 </div>
-
-                <hr />
-
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h5 className="mb-0">Last Name</h5>
-                  </div>
-
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0">{employee.lastName}</p>
-                  </div>
+                <div>
+                  <h5 className="text-lg font-semibold">Last Name</h5>
+                  <p className="text-sm text-gray-600">{employee.lastName}</p>
                 </div>
-                <hr />
-
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h5 className="mb-0">Email</h5>
-                  </div>
-
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0">{employee.email}</p>
-                  </div>
+                <div>
+                  <h5 className="text-lg font-semibold">Email</h5>
+                  <p className="text-sm text-gray-600">{employee.email}</p>
                 </div>
-                <hr />
-
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h5 className="mb-0">Department</h5>
-                  </div>
-
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0">{employee.department}</p>
-                  </div>
+                <div>
+                  <h5 className="text-lg font-semibold">Department</h5>
+                  <p className="text-sm text-gray-600">{employee.department}</p>
                 </div>
-                <hr />
-
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h5 className="mb-0">Description</h5>
-                  </div>
-
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0">{employee.description}</p>
-                  </div>
+                <div className="col-span-2">
+                  <h5 className="text-lg font-semibold">Description</h5>
+                  <p className="text-sm text-gray-600">
+                    {employee.description}
+                  </p>
                 </div>
               </div>
             </div>

@@ -22,7 +22,7 @@ function Login() {
           dispatch(authLogin(userData));
         }
 
-        toast.success("Wow so easy!");
+        window.alert("Welcome to Job Portal");
         navigate("/");
       }
     } catch (error) {
@@ -32,55 +32,52 @@ function Login() {
   };
 
   return (
-    <div class="flex items-center justify-center w-full">
-    
-    <div class="mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10">
-      <div class="mb-2 flex justify-center">
-        <span class="inline-block w-full max-w-[100px]"></span>
+    <div className="flex items-center justify-center h-screen">
+      <div className="w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10">
+        <h2 className="text-3xl text-center font-bold text-gray-800 mb-6">
+          Sign in to your account
+        </h2>
+        <p className="text-center text-gray-600 mb-6">
+          Don't have an account?{" "}
+          <Link
+            to="/signup"
+            className="text-primary hover:text-primary-dark transition duration-300"
+          >
+            Sign Up
+          </Link>
+        </p>
+        {error && (
+          <p className="text-red-600 text-sm mb-4 text-center">{error}</p>
+        )}
+        <form onSubmit={handleSubmit(login)}>
+          <div className="space-y-4">
+            <input
+              label="Email"
+              type="email"
+              {...register("email", {
+                required: true,
+                pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+              })}
+              placeholder="Enter your email"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+            />
+            <input
+              label="Password"
+              type="password"
+              {...register("password", { required: true })}
+              placeholder="Enter your password"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+            />
+            <button
+              type="submit"
+              className="w-full bg-primary text-white py-3 rounded-lg transition duration-300 hover:bg-primary-dark"
+            >
+              Sign in
+            </button>
+          </div>
+        </form>
       </div>
-      <h2 class="text-center text-2xl font-bold leading-tight">
-        Sign in to your account
-      </h2>
-      <p class="mt-2 text-center text-base text-black/60">
-        Don&apos;t have any account?&nbsp;
-        <a href="/signup" class="font-medium text-primary transition-all duration-200 hover:underline">
-          Sign Up
-        </a>
-      </p>
-      {error && <p class="text-red-600 mt-8 text-center">{error}</p>}
-      <form onSubmit={handleSubmit(login)} class="mt-8">
-        <div class="space-y-5">
-          <input
-            label="Email: "
-            placeholder="Enter your email"
-            type="email"
-            {...register("email", {
-              required: true,
-              validate: {
-                matchPatern: (value) =>
-                  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                  "Email address must be a valid address",
-              },
-            })}
-            class="w-full border p-2 rounded"
-          />
-          <input
-            label="Password: "
-            type="password"
-            placeholder="Enter your password"
-            {...register("password", {
-              required: true,
-            })}
-            class="w-full border p-2 rounded"
-          />
-          <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">
-            Sign in
-          </button>
-        </div>
-      </form>
     </div>
-  </div>
-  
   );
 }
 

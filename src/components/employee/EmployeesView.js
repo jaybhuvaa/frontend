@@ -10,6 +10,7 @@ const EmployeesView = () => {
   useEffect(() => {
     loadEmployees();
   }, []);
+
   const loadEmployees = async () => {
     try {
       const userId = localStorage.getItem("userId");
@@ -21,10 +22,8 @@ const EmployeesView = () => {
         }
       );
 
-      
-        console.log(result.data); // Add this line to check the data in the console
-        setEmployees(result.data);
-      
+      console.log(result.data);
+      setEmployees(result.data);
     } catch (error) {
       console.error("Error loading employees:", error);
     }
@@ -37,24 +36,37 @@ const EmployeesView = () => {
 
   return (
     <section>
-      <table className="table table-bordered table-hover shadow">
+      <table className="table table-bordered table-hover shadow mt-36">
         <thead>
           <tr className="text-center">
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Department</th>
-            <th>Description</th>
-            <th colSpan="3">Actions</th>
+            <th style={{ backgroundColor: "#0F4C75", color: "#BBE1FA" }}>ID</th>
+            <th style={{ backgroundColor: "#0F4C75", color: "#BBE1FA" }}>
+              First Name
+            </th>
+            <th style={{ backgroundColor: "#0F4C75", color: "#BBE1FA" }}>
+              Last Name
+            </th>
+            <th style={{ backgroundColor: "#0F4C75", color: "#BBE1FA" }}>
+              Email
+            </th>
+            <th style={{ backgroundColor: "#0F4C75", color: "#BBE1FA" }}>
+              Department
+            </th>
+            <th style={{ backgroundColor: "#0F4C75", color: "#BBE1FA" }}>
+              Description
+            </th>
+            <th
+              colSpan="3"
+              style={{ backgroundColor: "#0F4C75", color: "#BBE1FA" }}
+            >
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody className="text-center">
           {employees.map((employee, index) => (
             <tr key={employee.id}>
-              <th scope="row" key={index}>
-                {index + 1}
-              </th>
+              <th scope="row">{index + 1}</th>
               <td>{employee.firstName}</td>
               <td>{employee.lastName}</td>
               <td>{employee.email}</td>
@@ -65,7 +77,6 @@ const EmployeesView = () => {
                   to={`/employeeProfile/${employee.id}`}
                   className="btn btn-info"
                 >
-                  {" "}
                   <FaEye />
                 </Link>
               </td>
@@ -74,7 +85,6 @@ const EmployeesView = () => {
                   to={`/editEmployee/${employee.id}`}
                   className="btn btn-warning"
                 >
-                  {" "}
                   <FaEdit />
                 </Link>
               </td>

@@ -18,6 +18,8 @@ import Protected from "./components/common/authLayout";
 import Signup from "./components/common/signup.js";
 import { Provider } from "react-redux";
 import store from "./components/common/store.js";
+import Aboutus from "./components/employee/Aboutus.js";
+import Contact from "./components/employee/Contact.js";
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
                 </Protected>
               }
             ></Route>
+
             <Route
               exact
               path="/viewEmployee"
@@ -50,6 +53,24 @@ function App() {
               element={
                 <Protected authentication>
                   <AddEmployee />
+                </Protected>
+              }
+            ></Route>
+            <Route
+              exact
+              path="/contactus"
+              element={
+                <Protected authentication>
+                  <Contact />
+                </Protected>
+              }
+            ></Route>
+            <Route
+              exact
+              path="/about"
+              element={
+                <Protected authentication>
+                  <Aboutus />
                 </Protected>
               }
             ></Route>
